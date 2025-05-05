@@ -1,2 +1,2 @@
 # project_final
-Mudança no README.md
+Projeto realizado no âmbito da disciplina de Programação
