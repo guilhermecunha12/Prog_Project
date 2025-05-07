@@ -9,13 +9,9 @@ namespace prog {
     class Color {
     private:
         // TODO: private fields required for color representation.
-        // boas
-        bool b;
 
     public:
         Color();
-
-        bool test2();
 
         Color(const Color &c);
 
@@ -32,8 +28,6 @@ namespace prog {
         rgb_value blue() const;
 
         rgb_value &blue();
-
-        int exemplo();
     };
 }
 
