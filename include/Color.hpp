@@ -10,9 +10,12 @@ namespace prog {
     private:
         // TODO: private fields required for color representation.
         // boas
+        bool b;
 
     public:
         Color();
+
+        bool test2();
 
         Color(const Color &c);
 
