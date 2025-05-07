@@ -9,7 +9,7 @@ git checkout main
 
 git pull origin main (Obtemos as mudanças mais recentes de main do GitHub)
 
-git checkout branch name
+git checkout nome do branch
 
 git merge main, vai buscar as mudanças efetuadas em main
 
