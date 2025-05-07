@@ -1,5 +1,0 @@
-/home/guilherme/prog/Prog_Project/build/CMakeFiles/runscrim.dir
-/home/guilherme/prog/Prog_Project/build/CMakeFiles/tester.dir
-/home/guilherme/prog/Prog_Project/build/CMakeFiles/delivery.dir
-/home/guilherme/prog/Prog_Project/build/CMakeFiles/edit_cache.dir
-/home/guilherme/prog/Prog_Project/build/CMakeFiles/rebuild_cache.dir

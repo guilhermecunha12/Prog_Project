@@ -4,40 +4,49 @@
 using std::istream;
 
 namespace prog {
-    Color::Color() {
-    }
+    // Construtor default, initcializa a cor preta R:0, G:0, B:0
+    Color::Color() : r_(0), g_(0), b_(0) {}
 
+    // Construtor por cópia
     Color::Color(const Color &other) {
+        r_ = other.r_;
+        g_ = other.g_;
+        b_ = other.b_;
     }
 
+    // Construtor tendo em conta valores (r, g, b)
     Color::Color(rgb_value red, rgb_value green, rgb_value blue) {
+        r_ = red;
+        g_ = green;
+        b_ = blue;
     }
 
+    // Getter para o valor R(red) da cor
     rgb_value Color::red() const {
-        return 0;
+        return r_;
     }
 
+    // Getter para o valor G(green) da cor
     rgb_value Color::green() const {
-        return 0;
+        return g_;
     }
 
+    // Getter para o valor B(blue) da cor
     rgb_value Color::blue() const {
-        return 0;
+        return b_;
     }
 
-    // TODO: remove this DUMMY variable once you have appropriate fields for representing colors.
-    rgb_value DUMMY_rgb_value = 0;
-
+    // Getters com referências mutáveis
     rgb_value &Color::red() {
-        return DUMMY_rgb_value;
+        return r_;
     }
 
     rgb_value &Color::green() {
-        return DUMMY_rgb_value;
+        return g_;
     }
 
     rgb_value &Color::blue() {
-        return DUMMY_rgb_value;
+        return b_;
     }
 }
 
