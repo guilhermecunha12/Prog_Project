@@ -1,0 +1,10 @@
+Comandos a rodar no terminal após fazer git pull para retomar o trabalho
+---------------/-----------------------/--------------------------------
+
+$ cmake -B build
+...
+$ cd build
+$ make
+...
+$ cd ..
+$ build/tester
