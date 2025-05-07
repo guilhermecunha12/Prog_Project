@@ -36,7 +36,7 @@ namespace prog {
         return b_;
     }
 
-    // Getters com referências mutáveis
+    // Getters com referências mutáveis, implementação semelhante aos anteriores
     rgb_value &Color::red() {
         return r_;
     }

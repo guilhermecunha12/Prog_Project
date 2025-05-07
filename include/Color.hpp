@@ -7,9 +7,6 @@ namespace prog {
     typedef unsigned char rgb_value;
 
     class Color {
-    private:
-        // TODO: private fields required for color representation.
-        rgb_value r_, g_, b_;
 
     public:
         Color();
@@ -29,6 +26,10 @@ namespace prog {
         rgb_value blue() const;
 
         rgb_value &blue();
+
+    private:
+        // Private fields para os canais de cor
+        rgb_value r_, g_, b_;
     };
 }
 
