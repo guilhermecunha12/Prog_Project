@@ -38,3 +38,4 @@ git push origin main (Atualizar a main do GitHub)
 
 # Advanced Functionality
 - Fazemos juntos numa call discord e rever o código já alterado (Dia 10 se possível)
+
