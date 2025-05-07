@@ -15,7 +15,13 @@ git checkout nome do branch
 
 git merge main, vai buscar as mudanças efetuadas em main
 
-Fazer mudanças, adds, commits
+Fazer todas as mudanças
+
+![1710155247237](https://github.com/user-attachments/assets/48dc6ac0-eba1-4347-9cbd-0e5cf4e84bd0)
+
+E só depois:
+- git add .
+- git commit -m "mensagem descritiva do que foi feito"
 
 git push origin nome do branch para atualizar o novo conteúdo do branch no GitHub
 
