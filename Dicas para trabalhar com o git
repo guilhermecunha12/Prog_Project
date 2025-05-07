@@ -2,7 +2,8 @@ IMPORTANTE:
 
 O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
 
-Git merge main, vai buscar as mudanças efetuadas em main
-Git push para atualizar o novo conteúdo do branch
-Fazer mudanças, adds, commits e pushes pouco a pouco
+git merge main, vai buscar as mudanças efetuadas em main
+Fazer mudanças, adds, commits
+git push origin <nome do branch> para atualizar o novo conteúdo do branch no GitHub
 git merge <nome do branch> (dentro do main)
+git push origin main
