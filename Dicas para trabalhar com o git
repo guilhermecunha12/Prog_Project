@@ -1,5 +1,8 @@
-Dentro do branch novo: (atualizações do proprio branch) 
+IMPORTANTE:
+
+O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
+
 Git merge main, vai buscar as mudanças efetuadas em main
 Git push para atualizar o novo conteúdo do branch
-Fazer mudanças, adds, commits e pushes pouco a pouco 
+Fazer mudanças, adds, commits e pushes pouco a pouco
 git merge <nome do branch> (dentro do main)
