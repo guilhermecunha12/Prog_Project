@@ -1,7 +1,7 @@
 # project_final
 Projeto realizado no âmbito da disciplina de Programação
 
-# IMPORTANTE:
+# BÍBLIA DO GIT (holy shit):
 
 FAÇAM GIT STATUS EM TUDO!!!! PARA SABER O QUE ESTÁ A ACONTECER
 
@@ -16,8 +16,6 @@ git checkout nome do branch
 git merge main, vai buscar as mudanças efetuadas em main
 
 Fazer todas as mudanças
-
-![1710155247237](https://github.com/user-attachments/assets/48dc6ac0-eba1-4347-9cbd-0e5cf4e84bd0)
 
 E só depois:
 - git add .
@@ -47,4 +45,8 @@ git push origin main (Atualizar a main do GitHub)
 
 # Advanced Functionality
 - Fazemos juntos numa call discord e rever o código já alterado (Dia 10 se possível)
+
+# Esta imagem ajuda a exemplificar como funcionam os comandos mas o melhor é seguir o guia SEMPRE
+  ![1710155247237](https://github.com/user-attachments/assets/48dc6ac0-eba1-4347-9cbd-0e5cf4e84bd0)
+  
 
