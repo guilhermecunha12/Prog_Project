@@ -6,7 +6,9 @@ Projeto realizado no âmbito da disciplina de Programação
 O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
 
 git checkout main
+
 git pull origin main (Obtemos as mudanças mais recentes de main do GitHub)
+
 git checkout <branch name>
 git merge main, vai buscar as mudanças efetuadas em main
 Fazer mudanças, adds, commits
