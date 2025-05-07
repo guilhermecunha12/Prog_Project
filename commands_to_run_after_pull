@@ -5,6 +5,9 @@ $ cmake -B build
 ...
 $ cd build
 $ make
+
+ou
+( $ make clean all se fôr para recompilar de raíz)
 ...
 $ cd ..
 $ build/tester
