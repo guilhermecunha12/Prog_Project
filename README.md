@@ -3,6 +3,8 @@ Projeto realizado no âmbito da disciplina de Programação
 
 # IMPORTANTE:
 
+FAÇAM GIT STATUS EM TUDO!!!! PARA SABER O QUE ESTÁ A ACONTECER
+
 O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
 
 git checkout main
