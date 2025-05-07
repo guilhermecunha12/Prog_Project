@@ -32,7 +32,6 @@ git push origin main (Atualizar a main do GitHub)
 # Distribuição do trabalho
 
 # Pires
-- Implementar Color
 - Implementar invert, fill, add, crop, rotate_right
 
 # Gui
