@@ -7,6 +7,7 @@
 #include "Command/Save.hpp"
 #include "Command/Open.hpp"
 #include "Command/Replace.hpp"
+#include "Command/Invert.hpp"
 #include "Logger.hpp"
 #include "Command/to_gray_scale.hpp"
 #include "Command/h_mirror.hpp"
@@ -83,10 +84,10 @@ namespace prog {
             input >> filename;
             return new command::Open(filename);
         }
-        /*
-        if (command_na  me == "invert") {
+        if (command_name == "invert") {
             return new command::Invert();
         }
+        /*
         */
 
         if (command_name == "to_gray_scale") {
