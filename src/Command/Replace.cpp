@@ -17,8 +17,8 @@ namespace prog {
         //member functions
         //apply, aplica o comando replace à imagem
         Image *Replace::apply(Image *img) {
-            for (int i = 0; img -> height();i++) {
-                for (int j = 0; img -> width();j++) {
+            for (int i = 0; i < img -> height();i++) {
+                for (int j = 0; j <  img -> width();j++) {
                     // passado por referencia, caso seja necessario alterar
                     Color& current_color = img->at(j,i);
                     //verificar se a current-color é igual à color1_, se for, devemos alterar para color2_
