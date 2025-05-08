@@ -27,6 +27,7 @@ namespace prog {
         return height_;
     }
 
+
     Color &Image::at(int x, int y) {
         return pixels[y][x];
     }
