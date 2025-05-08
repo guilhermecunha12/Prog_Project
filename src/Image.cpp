@@ -28,10 +28,12 @@ namespace prog {
     }
 
     Color &Image::at(int x, int y) {
+        // Primeiro índice y para selecionar a linha e segundo índice x para selecionar a coluna
         return pixels[y][x];
     }
 
     const Color &Image::at(int x, int y) const {
+        // Primeiro índice y para selecionar a linha e segundo índice x para selecionar a coluna
         return pixels[y][x];
     }
 }

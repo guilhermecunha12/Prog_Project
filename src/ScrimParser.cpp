@@ -8,7 +8,8 @@
 #include "Command/Open.hpp"
 #include "Command/Replace.hpp"
 #include "Logger.hpp"
-
+#include "Command/to_gray_scale.hpp"
+#include "Command/h_mirror.hpp"
 
 #include <fstream>
 #include <string>
@@ -87,11 +88,11 @@ namespace prog {
             return new command::Invert();
         }
         */
-        /*
+
         if (command_name == "to_gray_scale") {
             return new command::To_gray_scale();
         }
-        */
+
 
         if (command_name == "replace") {
             Color c1,c2;
@@ -108,11 +109,11 @@ namespace prog {
             return new command::Fill(x,y,w,h,fill);
         }
         */
-        /*
+
        if (command_name == "h_mirror") {
            return new command::H_mirror();
        }
-       */
+
         /*
        if (command_name == "v_mirror") {
            return new command::V_mirror();
