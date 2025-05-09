@@ -37,9 +37,6 @@ Explicações:
 
 # Distribuição do trabalho
 
-# Pires
-- Implementar rotate_right
-
 # Gui
 - Implementar Image
 - Implementar to_gray_scale, h_mirror, move, rotate_left, resize
