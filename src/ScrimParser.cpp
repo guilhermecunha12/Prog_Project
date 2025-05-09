@@ -20,6 +20,7 @@
 #include "Command/Scaleup.hpp"
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
+#include "Command/rotate_right.hpp"
 
 #include <fstream>
 #include <string>
@@ -169,11 +170,11 @@ namespace prog {
            return new command::Rotate_left();
        }
 
-       /*
+
        if (command_name == "rotate_right") {
-           return new command::Rotate_right();
+           return new command::rotate_right();
        }
-       */
+
 
        if (command_name == "scaleup") {
            int x,y;
