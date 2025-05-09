@@ -11,7 +11,7 @@
 namespace prog {
     namespace command {
         //Construtor tendo em conta os valores dados pelas cores
-        Replace::Replace(Color c1, Color c2) : Command("replace"),color1_(c1),color2_(c2){}
+        Replace::Replace(Color c1, Color c2) : Command("Replace"),color1_(c1),color2_(c2){}
         //Destrutor default
         Replace::~Replace() {}
         //member functions
