@@ -3,9 +3,9 @@ Projeto realizado no âmbito da disciplina de Programação
 
 # BÍBLIA DO GIT (holy shit):
 
-FAÇAM GIT STATUS EM TUDO!!!! PARA SABER O QUE ESTÁ A ACONTECER
-
-O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
+## SE APARECER CONFLITO NO CLION OU ALGUMA COISA ESTRANHA NO TERMINAL, LIGAR CALL OU MANDAR MENSAGEM
+## FAÇAM GIT STATUS EM TUDO!!!! PARA SABER O QUE ESTÁ A ACONTECER
+## O QUE FAZER ANTES DE SUBMETER QUAISQUER MUDANÇAS NO BRANCH DE CADA UM
 
 git checkout main
 
@@ -25,14 +25,20 @@ git push origin nome do branch para atualizar o novo conteúdo do branch no GitH
 
 git checkout main (Vai à main local)
 
-git merge nome do branch (dentro do main)
+git pull origin main && git merge nome do branch && git push origin main (os && são para executar os comandos ao mesmo tempo para evitar problemas com pushes e pulls simultâneos)
 
-git push origin main (Atualizar a main do GitHub)
+Explicações:
+
+- git pull origin main (Ir buscar eventuais alterações à main remota que foram feitas enquanto fazíamos as nossas alterações locais para garantir que fazemos o push correto e atualizado)
+
+- git merge nome do branch (dentro do main)
+
+- git push origin main (Atualizar a main do GitHub)
 
 # Distribuição do trabalho
 
 # Pires
-- Implementar invert, fill, add, crop, rotate_right
+- Implementar rotate_right
 
 # Gui
 - Implementar Image
