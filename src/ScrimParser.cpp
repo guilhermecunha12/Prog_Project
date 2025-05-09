@@ -15,6 +15,7 @@
 #include "Command/fill.hpp"
 #include "Command/add.hpp"
 #include "Command/crop.hpp"
+#include "Command/V_mirror.hpp"
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
 
@@ -117,11 +118,10 @@ namespace prog {
            return new command::H_mirror();
        }
 
-        /*
        if (command_name == "v_mirror") {
            return new command::V_mirror();
        }
-       */
+
        if (command_name == "add") {
            string filename;
            Color neutral;
