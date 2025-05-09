@@ -33,7 +33,7 @@ namespace prog {
 
         std::string invert::toString() const {
             std::ostringstream out;
-            out << name() << "inverted Image";
+            out << name() << "Image";
             return out.str();
         }
     }

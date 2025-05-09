@@ -11,6 +11,7 @@
 #include "Command/to_gray_scale.hpp"
 #include "Command/h_mirror.hpp"
 #include "Command/fill.hpp"
+#include "Command/add.hpp"
 #include "Logger.hpp"
 
 #include <fstream>
@@ -117,14 +118,14 @@ namespace prog {
            return new command::V_mirror();
        }
        */
-       /*
        if (command_name == "add") {
            string filename;
            Color neutral;
-           int x,y;
-           return new command::Add(filename,neutral,x,y);
+           int x, y;
+           input >> filename >> neutral >> x >> y;
+           return new command::add(filename,neutral, x, y);
        }
-       */
+
        /*
        if (command_name == "move") {
            int x,y;
