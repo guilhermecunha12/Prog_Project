@@ -25,7 +25,7 @@ git push origin nome do branch para atualizar o novo conteúdo do branch no GitH
 
 git checkout main (Vai à main local)
 
-git pull origin main && git merge nome do branch && git push origin main (para evitar problemas com pushes e pulls simultâneos)
+git pull origin main && git merge nome do branch && git push origin main (os && são para executar os comandos ao mesmo tempo para evitar problemas com pushes e pulls simultâneos)
 
 Explicações:
 
