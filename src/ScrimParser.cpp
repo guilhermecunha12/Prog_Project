@@ -7,10 +7,11 @@
 #include "Command/Save.hpp"
 #include "Command/Open.hpp"
 #include "Command/Replace.hpp"
-#include "Command/Invert.hpp"
-#include "Logger.hpp"
+#include "Command/invert.hpp"
 #include "Command/to_gray_scale.hpp"
 #include "Command/h_mirror.hpp"
+#include "Command/fill.hpp"
+#include "Logger.hpp"
 
 #include <fstream>
 #include <string>
@@ -85,15 +86,12 @@ namespace prog {
             return new command::Open(filename);
         }
         if (command_name == "invert") {
-            return new command::Invert();
+            return new command::invert();
         }
-        /*
-        */
 
         if (command_name == "to_gray_scale") {
             return new command::To_gray_scale();
         }
-
 
         if (command_name == "replace") {
             Color c1,c2;
@@ -101,15 +99,14 @@ namespace prog {
             return new command::Replace(c1,c2);
         }
 
-        /*
+
         if (command_name == "fill") {
             int x,y;
             int w,h;
             Color fill;
-            input >> x >> y >> w >> h >> fill
-            return new command::Fill(x,y,w,h,fill);
+            input >> x >> y >> w >> h >> fill;
+            return new command::fill(x, y, w, h, fill);
         }
-        */
 
        if (command_name == "h_mirror") {
            return new command::H_mirror();
