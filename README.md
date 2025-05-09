@@ -25,11 +25,14 @@ git push origin nome do branch para atualizar o novo conteúdo do branch no GitH
 
 git checkout main (Vai à main local)
 
-git pull origin main (Ir buscar eventuais alterações à main remota que foram feitas enquanto fazíamos as nossas alterações locais para garantir que fazemos o push correto e atualizado)
+git pull origin main && git merge nome do branch && git push origin main (para evitar problemas com pushes e pulls simultâneos)
 
-git merge nome do branch (dentro do main)
+Explicações:
+-git pull origin main (Ir buscar eventuais alterações à main remota que foram feitas enquanto fazíamos as nossas alterações locais para garantir que fazemos o push correto e atualizado)
 
-git push origin main (Atualizar a main do GitHub)
+-git merge nome do branch (dentro do main)
+
+-git push origin main (Atualizar a main do GitHub)
 
 # Distribuição do trabalho
 
