@@ -1,18 +1,18 @@
 //
 // Created by pedro on 5/8/25.
 //
-#include "Command/Invert.hpp"
+#include "Command/invert.hpp"
 #include "Image.hpp"
 #include "Color.hpp"
 #include "sstream"
 
 namespace prog {
     namespace command {
-        Invert::Invert() : Command("Invert") {}
+        invert::invert() : Command("invert") {}
 
-        Invert::~Invert() {}
+        invert::~invert() {}
 
-        Image *Invert::apply(Image *img) {
+        Image *invert::apply(Image *img) {
 
             // Iterar sobre cada linha da imagem (y)
             for (int y = 0; y < img->height(); y++) {
@@ -31,9 +31,9 @@ namespace prog {
             return img;
         }
 
-        std::string Invert::toString() const {
+        std::string invert::toString() const {
             std::ostringstream out;
-            out << name() << "Inverted Image";
+            out << name() << "Image";
             return out.str();
         }
     }

@@ -7,12 +7,15 @@
 #include "Command/Save.hpp"
 #include "Command/Open.hpp"
 #include "Command/Replace.hpp"
-#include "Command/Invert.hpp"
-#include "Logger.hpp"
 #include "Command/To_gray_scale.hpp"
 #include "Command/H_mirror.hpp"
 #include "Command/Move.hpp"
 #include "Command/Rotate_left.hpp"
+#include "Command/invert.hpp"
+#include "Command/fill.hpp"
+#include "Command/add.hpp"
+#include "Command/crop.hpp"
+#include "Logger.hpp"
 
 #include <fstream>
 #include <string>
@@ -87,15 +90,12 @@ namespace prog {
             return new command::Open(filename);
         }
         if (command_name == "invert") {
-            return new command::Invert();
+            return new command::invert();
         }
-        /*
-        */
 
         if (command_name == "to_gray_scale") {
             return new command::To_gray_scale();
         }
-
 
         if (command_name == "replace") {
             Color c1,c2;
@@ -103,15 +103,14 @@ namespace prog {
             return new command::Replace(c1,c2);
         }
 
-        /*
+
         if (command_name == "fill") {
             int x,y;
             int w,h;
             Color fill;
-            input >> x >> y >> w >> h >> fill
-            return new command::Fill(x,y,w,h,fill);
+            input >> x >> y >> w >> h >> fill;
+            return new command::fill(x, y, w, h, fill);
         }
-        */
 
        if (command_name == "h_mirror") {
            return new command::H_mirror();
@@ -122,13 +121,15 @@ namespace prog {
            return new command::V_mirror();
        }
        */
-       /*
        if (command_name == "add") {
            string filename;
            Color neutral;
-           int x,y;
-           return new command::Add(filename,neutral,x,y);
+           int x, y;
+           input >> filename >> neutral >> x >> y;
+           return new command::add(filename,neutral, x, y);
        }
+
+       /*
        */
 
        if (command_name == "move") {
@@ -143,13 +144,14 @@ namespace prog {
            return new command::Slide(x,y);
        }
        */
-       /*
+
        if (command_name == "crop") {
            int x,y;
-           int w,h
-           return new command::Crop(x,y,w,h);
+           int w,h;
+           input >> x >> y >> w >> h;
+           return new command::crop(x,y,w,h);
        }
-       */
+
        /*
        if (command_name == "resize") {
            int x,y;
