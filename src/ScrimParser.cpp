@@ -12,6 +12,7 @@
 #include "Command/h_mirror.hpp"
 #include "Command/fill.hpp"
 #include "Command/add.hpp"
+#include "Command/crop.hpp"
 #include "Logger.hpp"
 
 #include <fstream>
@@ -138,13 +139,14 @@ namespace prog {
            return new command::Slide(x,y);
        }
        */
-       /*
+
        if (command_name == "crop") {
            int x,y;
-           int w,h
-           return new command::Crop(x,y,w,h);
+           int w,h;
+           input >> x >> y >> w >> h;
+           return new command::crop(x,y,w,h);
        }
-       */
+
        /*
        if (command_name == "resize") {
            int x,y;

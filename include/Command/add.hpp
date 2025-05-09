@@ -5,6 +5,7 @@
 #ifndef ADD_HPP
 #define ADD_HPP
 #include "Command.hpp"
+#include "Color.hpp"
 
 namespace prog {
     namespace command {

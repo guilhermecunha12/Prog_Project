@@ -32,7 +32,7 @@ namespace prog {
         }
         std::string fill::toString() const {
             std::ostringstream out;
-            out << "Top left corner (x:" << x_ << " y:" << y_ << ") w:" << w_ << " h:" << h_ << " fill:" << color_fill_;
+            out << name() << " Top left corner (x:" << x_ << " y:" << y_ << ") w:" << w_ << " h:" << h_ << " fill:" << color_fill_;
             return out.str();
         }
 
