@@ -38,7 +38,7 @@ Explicações:
 # Distribuição do trabalho
 
 # Pires
-- Implementar fill, add, crop, rotate_right
+- Implementar crop, rotate_right
 
 # Gui
 - Implementar Image
