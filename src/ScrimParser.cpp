@@ -16,6 +16,7 @@
 #include "Command/add.hpp"
 #include "Command/crop.hpp"
 #include "Command/V_mirror.hpp"
+#include "Command/Slide.hpp"
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
 
@@ -139,12 +140,13 @@ namespace prog {
            return new command::Move(x,y);
        }
 
-       /*
+
        if (command_name == "slide") {
            int x,y;
+           input >> x >> y;
            return new command::Slide(x,y);
        }
-       */
+
 
        if (command_name == "crop") {
            int x,y;
