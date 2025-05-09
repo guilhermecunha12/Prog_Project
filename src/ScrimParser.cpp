@@ -17,6 +17,7 @@
 #include "Command/crop.hpp"
 #include "Command/V_mirror.hpp"
 #include "Command/Slide.hpp"
+#include "Command/Scaleup.hpp"
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
 
@@ -173,12 +174,13 @@ namespace prog {
            return new command::Rotate_right();
        }
        */
-       /*
+
        if (command_name == "scaleup") {
            int x,y;
-           return new command::Rotate_left(x,y);
+           input >> x >> y;
+           return new command::Scaleup(x,y);
        }
-       */
+
 
         // TODO: implement cases for the new commands
 
