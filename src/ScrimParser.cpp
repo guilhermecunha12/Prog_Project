@@ -16,6 +16,7 @@
 #include "Command/add.hpp"
 #include "Command/crop.hpp"
 #include "Logger.hpp"
+#include "Command/Resize.hpp"
 
 #include <fstream>
 #include <string>
@@ -152,13 +153,14 @@ namespace prog {
            return new command::crop(x,y,w,h);
        }
 
-       /*
+
        if (command_name == "resize") {
-           int x,y;
-           int w,h
+           int x, y;
+           int w, h;
+           input >> x >> y >> w >> h;
            return new command::Resize(x,y,w,h);
        }
-       */
+
 
        if (command_name == "rotate_left") {
            return new command::Rotate_left();
