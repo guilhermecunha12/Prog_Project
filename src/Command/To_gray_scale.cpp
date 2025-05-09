@@ -1,7 +1,7 @@
 //
 // Created by guilherme on 5/8/25.
 //
-#include "Command/to_gray_scale.hpp"
+#include "Command/To_gray_scale.hpp"
 #include <sstream>
 
 namespace prog

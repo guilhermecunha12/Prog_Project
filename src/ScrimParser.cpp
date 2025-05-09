@@ -9,8 +9,10 @@
 #include "Command/Replace.hpp"
 #include "Command/Invert.hpp"
 #include "Logger.hpp"
-#include "Command/to_gray_scale.hpp"
-#include "Command/h_mirror.hpp"
+#include "Command/To_gray_scale.hpp"
+#include "Command/H_mirror.hpp"
+#include "Command/Move.hpp"
+#include "Command/Rotate_left.hpp"
 
 #include <fstream>
 #include <string>
@@ -128,12 +130,13 @@ namespace prog {
            return new command::Add(filename,neutral,x,y);
        }
        */
-       /*
+
        if (command_name == "move") {
            int x,y;
+           input >> x >> y;
            return new command::Move(x,y);
        }
-       */
+
        /*
        if (command_name == "slide") {
            int x,y;
@@ -154,11 +157,11 @@ namespace prog {
            return new command::Resize(x,y,w,h);
        }
        */
-       /*
+
        if (command_name == "rotate_left") {
            return new command::Rotate_left();
        }
-       */
+
        /*
        if (command_name == "rotate_right") {
            return new command::Rotate_right();
