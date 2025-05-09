@@ -26,9 +26,11 @@ namespace prog {
                     // Atualizar Cor do pixel da imagem depois do crop
                     Color& new_img_color = new_image->at(x - x_, y - y_);
 
-                    new_img_color.red() = old_img_color.red();
+                    /*new_img_color.red() = old_img_color.red();
                     new_img_color.green() = old_img_color.green();
-                    new_img_color.blue() = old_img_color.blue();
+                    new_img_color.blue() = old_img_color.blue();*/
+
+                    new_img_color = old_img_color;
 
                 }
             }
@@ -44,6 +46,5 @@ namespace prog {
             out << name() << " x:" << x_ << " y:" << y_ << " w:" << w_ << " h:" << h_;
             return out.str();
         }
-
     }
 }

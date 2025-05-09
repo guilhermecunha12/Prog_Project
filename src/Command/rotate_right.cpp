@@ -38,11 +38,5 @@ namespace prog {
             out << name() << " Rotated the image right by 90 degrees";
             return out.str();
         }
-
-
-
-
-
-
     }
 }
