@@ -42,10 +42,6 @@ namespace prog {
                         || image_to_add_color.blue() != neutral_color_.blue()
                         || image_to_add_color.green() != neutral_color_.green()) {
 
-                        /*
-                        current_image_color.red() = image_to_add_color.red();
-                        current_image_color.green() = image_to_add_color.green();
-                        current_image_color.blue() = image_to_add_color.blue();*/
                         current_image_color = image_to_add_color;
                     }
                 }

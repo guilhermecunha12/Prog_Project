@@ -23,9 +23,6 @@ namespace prog {
                     Color& current_pixel = img->at(x, y);
 
                     // Alterar a cor do píxel atual tendo em conta a cor pretendida
-                    /*current_pixel.red() = color_fill_.red();
-                    current_pixel.green() = color_fill_.green();
-                    current_pixel.blue() = color_fill_.blue();*/
                     current_pixel = color_fill_;
                 }
             }
