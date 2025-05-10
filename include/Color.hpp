@@ -27,6 +27,11 @@ namespace prog {
 
         rgb_value &blue();
 
+        // Operator overloads para objetos Color
+        bool operator==(const Color& other) const;
+
+        bool operator!=(const Color& other) const;
+
     private:
         // Private fields para os canais de cor
         rgb_value r_, g_, b_;

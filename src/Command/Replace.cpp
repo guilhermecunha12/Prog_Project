@@ -26,8 +26,8 @@ namespace prog {
                     // passado por referência, caso seja necessário alterar
                     Color& current_color = img->at(j,i);
                     //verificar se a current-color é igual à color1_, se for, devemos alterar para color2_
-                    if (current_color.red() == color1_.red() && current_color.green() == color1_.green() && current_color.blue() == color1_.blue()) {
-                        //Current_color é igual a color1_,então alteramos
+                    if (current_color == color1_) {
+                        //Current_color é igual a color1_, então alteramos
                         current_color = color2_;
                     }
                 }

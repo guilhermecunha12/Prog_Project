@@ -48,6 +48,16 @@ namespace prog {
     rgb_value &Color::blue() {
         return b_;
     }
+
+    bool Color::operator==(const Color& other) const
+    {
+        return r_ == other.red() && g_ == other.green() && b_ == other.blue();
+    }
+
+    bool Color::operator!=(const Color& other) const
+    {
+        return !(*this == other);
+    }
 }
 
 

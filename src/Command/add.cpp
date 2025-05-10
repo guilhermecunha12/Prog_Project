@@ -39,10 +39,7 @@ namespace prog {
                     Color& image_to_add_color = image_to_add->at(x, y);
 
                     // Se a cor da imagem a adicionar é diferente da cor neutra copiar o pixel da imagem a adicionar
-                    if (image_to_add_color.red() != neutral_color_.red()
-                        || image_to_add_color.blue() != neutral_color_.blue()
-                        || image_to_add_color.green() != neutral_color_.green()) {
-
+                    if (image_to_add_color != neutral_color_) {
                         current_image_color = image_to_add_color;
                     }
                 }
