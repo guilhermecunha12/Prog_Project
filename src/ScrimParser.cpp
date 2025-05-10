@@ -117,74 +117,66 @@ namespace prog {
             return new command::fill(x, y, w, h, fill);
         }
 
-       if (command_name == "h_mirror") {
+        if (command_name == "h_mirror") {
            return new command::H_mirror();
-       }
+        }
 
-       if (command_name == "v_mirror") {
+        if (command_name == "v_mirror") {
            return new command::V_mirror();
-       }
+        }
 
-       if (command_name == "add") {
+        if (command_name == "add") {
            string filename;
            Color neutral;
            int x, y;
            input >> filename >> neutral >> x >> y;
            return new command::add(filename,neutral, x, y);
-       }
+        }
 
-       /*
-       */
-
-       if (command_name == "move") {
+        if (command_name == "move") {
            int x,y;
            input >> x >> y;
            return new command::Move(x,y);
-       }
+        }
 
-
-       if (command_name == "slide") {
+        if (command_name == "slide") {
            int x,y;
            input >> x >> y;
            return new command::Slide(x,y);
-       }
+        }
 
-
-       if (command_name == "crop") {
+        if (command_name == "crop") {
            int x,y;
            int w,h;
            input >> x >> y >> w >> h;
            return new command::crop(x,y,w,h);
-       }
+        }
 
-
-       if (command_name == "resize") {
+        if (command_name == "resize") {
            int x, y;
            int w, h;
            input >> x >> y >> w >> h;
            return new command::Resize(x,y,w,h);
-       }
+        }
 
-
-       if (command_name == "rotate_left") {
+        if (command_name == "rotate_left") {
            return new command::Rotate_left();
-       }
+        }
 
-
-       if (command_name == "rotate_right") {
+        if (command_name == "rotate_right") {
            return new command::rotate_right();
-       }
+        }
 
-
-       if (command_name == "scaleup") {
+        if (command_name == "scaleup") {
            int x,y;
            input >> x >> y;
            return new command::Scaleup(x,y);
-       }
+        }
+        /*
+        if (command_name  == "chain") {
 
-
-        // TODO: implement cases for the new commands
-
+        }
+        */
         *Logger::err() << "Command not recognized: '" + command_name + "'\n";
         return nullptr;
     }

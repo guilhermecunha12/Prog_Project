@@ -19,11 +19,8 @@ namespace prog {
             for (int y = y_; y < y_ + h_ && y < img->height(); y++) {
                 // Iniciamos a partir do Top-left corner e terminamos quando alcançarmos o fim da imagem em largura
                 for (int x = x_; x < x_ + w_ && x < img->width(); x++) {
-                    // Píxel da imagem na posição atual
-                    Color& current_pixel = img->at(x, y);
-
                     // Alterar a cor do píxel atual tendo em conta a cor pretendida
-                    current_pixel = color_fill_;
+                    img->at(x, y) = color_fill_;
                 }
             }
             return img;

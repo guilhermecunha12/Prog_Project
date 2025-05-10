@@ -16,10 +16,10 @@ namespace prog
             // que a imagem img com todos os pixeis com a fill color
             Image* res = new Image(img->width(), img->height());
 
-            // Percorrer as linhas de img
+            // Selecionar uma linha da img
             for (int y = 0; y < img->height(); y++)
             {
-                // Percorrer cada linha de img
+                // Percorrer a linha selecionada da img
                 for (int x = 0; x < img->width(); x++)
                 {
                     // Apenas mover os pixeis que, ao serem deslocados, não saiam das margens da imagem.

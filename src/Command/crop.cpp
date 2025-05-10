@@ -21,12 +21,7 @@ namespace prog {
             for (int y = y_; y < y_ + h_ && y < img->height(); y++) {
                 for (int x = x_; x < x_ + w_ && x < img->width(); x++) {
                     // Cor do píxel da imagem antes do crop
-                    Color& old_img_color = img->at(x, y);
-
-                    // Atualizar Cor do pixel da imagem depois do crop
-                    Color& new_img_color = new_image->at(x - x_, y - y_);
-                    new_img_color = old_img_color;
-
+                    new_image->at(x - x_, y - y_) = img->at(x, y);
                 }
             }
             // Eliminar a imagem anterior

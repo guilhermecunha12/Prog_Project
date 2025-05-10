@@ -19,7 +19,7 @@ namespace prog {
             */
             Image* rotated_image = new Image(img->height(), img->width());
 
-            // Iteramos sobre a rotated_image
+            // Iteramos sobre a imagem original
             for (int y = 0; y < img->height(); y++) {
                 for (int x = 0; x < img->width(); x++) {
                     // A primeira linha passa a ser a última coluna e a primeira coluna passa a ser a primeira linha

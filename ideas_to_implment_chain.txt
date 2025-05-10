@@ -1,0 +1,7 @@
+-> Adicionar em ScrimParser o novo comando - chain
+-> Caso o comando fosse chain deveríamos ler o restante que se encontra à frente até encontrar a palavra end
+-> Dentro de chain encontram-se ficheiros pelo que deveríamos ler o seu conteúdo e executar oa comandos que se encontram dentro dos mesmos
+-> Ignorar os comandos save, blank e open - caso estes apareçam dentro de uma chain
+-> Suporte para nested chains
+-> Caso um mesmo ficheiro seja chamado duas vezes, este deve ser ignorado
+

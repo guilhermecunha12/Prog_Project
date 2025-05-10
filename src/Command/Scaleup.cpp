@@ -9,8 +9,10 @@ namespace prog {
     namespace command {
         //construtor
         Scaleup::Scaleup(int x, int y) : Command("Scaleup"),x_(x),y_(y) {}
+
         //destrutor default
         Scaleup::~Scaleup() {}
+
         //member functions
         Image *Scaleup::apply(Image *img) {
             /* Alocar em memória dinâmica uma imagem temporária com a nova largura e altura conforme
@@ -24,7 +26,7 @@ namespace prog {
                 for (int x = 0; x < img->width();x++) {
                     // o pixel atual de img
                     const Color current = img->at(x,y);
-                    // 2 loops para iterar de 0 até x_ e y_, para dar multiplicar o númeor de pixeis
+                    // 2 loops para iterar de 0 até x_ e y_, para dar multiplicar o número de pixeis
                     for (int j = 0; j < y_ ;j++) {
                         for (int i = 0; i< x_;i++) {
                             // pegamos no (x,y) do atual e multiplicamos pelo (x_,y_)
@@ -45,9 +47,5 @@ namespace prog {
             ss << name() << " x: " << x_ << " y: " << y_;
             return ss.str();
         }
-
-
-
-
     }
 }

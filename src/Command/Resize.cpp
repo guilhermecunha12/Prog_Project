@@ -17,8 +17,10 @@ namespace prog
 
             // Preencher a parte do resize que está compreendida dentro da imagem original,
             // aplicando o offset (x_, y_) à imagem original, que é o ponto de partida para o resize
+            // Selecionar uma linha da imagem
             for (int y = 0; y + y_ < img->height(); y++)
             {
+                // Percorrer a linha selecionada da imagem
                 for (int x = 0 ; x + x_ < img->width(); x++)
                 {
                     res->at(x, y) = img->at(x + x_, y + y_);

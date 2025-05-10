@@ -12,11 +12,13 @@ namespace prog
 
         Image* To_gray_scale::apply(Image* img)
         {
+            // Selecionar uma linha da imagem
             for (int y = 0; y < img->height(); y++)
             {
+                // Percorrer a linha selecionada da imagem
                 for (int x = 0; x < img->width(); x++)
                 {
-                    // Pixel a alterar, por isso é criada uma referência
+                    // Píxel a alterar, por isso é criada uma referência
                     Color& pixel = img->at(x, y);
                     rgb_value v = (pixel.red() + pixel.green() + pixel.blue()) / 3;
 

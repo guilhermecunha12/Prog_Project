@@ -14,9 +14,9 @@ namespace prog {
 
         Image *invert::apply(Image *img) {
 
-            // Iterar sobre cada linha da imagem (y)
+            // Selecionar uma linha da imagem
             for (int y = 0; y < img->height(); y++) {
-                // Iterar sobre cada coluna da imagem (x)
+                // Percorrer a linha selecionada da imagem
                 for (int x = 0; x < img->width(); x++) {
                     // Cor do pixel atual
 

@@ -26,8 +26,9 @@ namespace prog {
             Image* image_to_add = open_image.apply(nullptr);
 
 
-            // Iterar sobre a imagem que queremos adicionar
+            // Selecionar uma linha da imagem
             for (int y = 0; y < image_to_add->height(); y++) {
+                // Percorrer a linha selecionada da imagem
                 for (int x = 0; x < image_to_add->width(); x++) {
                     /* Cor do píxel da imagem atual (tendo em conta que queremos adicionar
                      * a nova imagem tendo em conta o Top-corner
