@@ -10,6 +10,8 @@ namespace prog
     {
         Move::Move(int x, int y) : Command("Move"), x_(x), y_(y) {}
 
+        Move::~Move() {}
+
         Image* Move::apply(Image* img)
         {
             // Alocar memória dinâmica para nova imagem com as mesmas dimensões

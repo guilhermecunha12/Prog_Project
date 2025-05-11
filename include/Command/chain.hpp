@@ -16,7 +16,7 @@ namespace prog {
             // Construtor
             chain(std::vector<std::string> filepaths);
 
-            // Destrutores
+            // Destrutor
             ~chain();
 
             // Overrides

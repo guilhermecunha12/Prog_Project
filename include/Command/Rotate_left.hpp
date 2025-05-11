@@ -16,6 +16,9 @@ namespace prog
             //Construtor
             Rotate_left();
 
+            //Destrutor
+            ~Rotate_left();
+
             //Overrides
             Image* apply(Image* img) override;
             std::string toString() const override;

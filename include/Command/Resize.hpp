@@ -16,6 +16,9 @@ namespace prog
             // Constructor
             Resize(int x, int y, int w, int h);
 
+            // Destrutor
+            ~Resize();
+
             // Overrides
             Image* apply(Image* img) override;
             std::string toString() const override;

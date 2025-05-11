@@ -16,6 +16,9 @@ namespace prog
             // Construtor
             To_gray_scale();
 
+            // Destrutor
+            ~To_gray_scale() override;
+
             // Override
             Image* apply(Image* img) override;
             std::string toString() const override;

@@ -10,6 +10,8 @@ namespace prog
     {
         To_gray_scale::To_gray_scale() : Command("To_gray_scale") {}
 
+        To_gray_scale::~To_gray_scale() {}
+
         Image* To_gray_scale::apply(Image* img)
         {
             // Selecionar uma linha da imagem

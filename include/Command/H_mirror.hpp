@@ -16,6 +16,9 @@ namespace prog
             // Construtor
             H_mirror();
 
+            // Destrutor
+            ~H_mirror();
+
             // Overrides
             Image* apply(Image* img) override;
             std::string toString() const override;

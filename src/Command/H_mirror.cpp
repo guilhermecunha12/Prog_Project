@@ -10,6 +10,8 @@ namespace prog
     {
         H_mirror::H_mirror() : Command("H_mirror") {}
 
+        H_mirror::~H_mirror() {}
+
         Image* H_mirror::apply(Image* img)
         {
             // Inverter os píxeis linha a linha

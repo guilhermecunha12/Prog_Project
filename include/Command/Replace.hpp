@@ -16,6 +16,7 @@ namespace prog {
             Replace(Color c1,Color c2);
             //Destrutor
             ~Replace();
+
             //Funções definidas dentro da class
             //aplica o commando à imagem
             Image *apply(Image *img) override;

@@ -10,6 +10,8 @@ namespace prog
     {
         Resize::Resize(int x, int y, int w, int h) : Command("Resize"), x_(x), y_(y), w_(w), h_(h) {}
 
+        Resize::~Resize() {}
+
         Image* Resize::apply(Image* img)
         {
             // Alocar memória dinâmica para nova imagem com as novas dimensões com todos os pixeis com a fill color

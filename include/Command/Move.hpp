@@ -16,6 +16,9 @@ namespace prog
             // Construtor
             Move(int x, int y);
 
+            // Destrutor
+            ~Move();
+
             // Overrides
             Image* apply(Image* img) override;
             std::string toString() const override;

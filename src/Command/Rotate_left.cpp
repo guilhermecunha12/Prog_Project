@@ -10,6 +10,8 @@ namespace prog
     {
         Rotate_left::Rotate_left() : Command("Rotate_left") {}
 
+        Rotate_left::~Rotate_left() {}
+
         Image* Rotate_left::apply(Image* img)
         {
             // Alocar memória dinâmica para nova imagem, sendo que a nova largura é o comprimento da imagem original
