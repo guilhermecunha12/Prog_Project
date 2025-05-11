@@ -32,7 +32,7 @@ namespace prog {
 
         std::string V_mirror::toString() const {
             std::ostringstream ss;
-            ss << name() << "v_mirror";
+            ss << name() << " Image was V-mirrored";
             return ss.str();
         }
 

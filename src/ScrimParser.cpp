@@ -21,6 +21,7 @@
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
 #include "Command/rotate_right.hpp"
+#include "Command/chain.hpp"
 
 #include <fstream>
 #include <string>
@@ -39,15 +40,16 @@ namespace prog {
     ScrimParser::~ScrimParser() {
     };
 
-
-    Scrim *ScrimParser::parseScrim(std::istream &input) {
+    // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
+    // E assim evitar recursão com o comando chain
+    Scrim *ScrimParser::parseScrim(std::istream &input, const std::string &filename) {
         // Create vector where commands will be stored
         vector<Command *> commands;
 
         // Parse commands while there is input in the stream
         string command_name;
         while (input >> command_name) {
-            Command *command = parse_command(command_name, input);
+            Command *command = parse_command(command_name, input, filename);
 
             if (command == nullptr) {
                 // Deallocate already allocated commands
@@ -67,13 +69,15 @@ namespace prog {
         return new Scrim(commands);
     }
 
-
+    // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
+    // E assim evitar recursão com o comando chain
     Scrim *ScrimParser::parseScrim(const std::string &filename) {
         ifstream in(filename);
-        return parseScrim(in);
+        return parseScrim(in, filename);
     }
 
-    Command *ScrimParser::parse_command(string command_name, istream &input) {
+    // Adicionou-se o argumento filename para evitar recursão com o comando chain
+    Command *ScrimParser::parse_command(string command_name, istream &input, const std::string &filename) {
         if (command_name == "blank") {
             // Read information for Blank command
             int w, h;
@@ -172,11 +176,25 @@ namespace prog {
            input >> x >> y;
            return new command::Scaleup(x,y);
         }
-        /*
-        if (command_name  == "chain") {
 
+        if (command_name  == "chain") {
+            // variável para guardar cada argumento do chain
+            string filepath;
+
+            // vetor que guarda os argumentos do chain
+            vector<string> filepaths;
+
+            // Lê um número arbitrário de filepaths enquanto o input não acabar e não terminar com a string end
+            while (input >> filepath && filepath != "end") {
+                /* Deteta a recursão: se o ficheiro atual fôr o mesmo que um dos argumentos do chain, há recursão e
+                não adicionamos o file path aos argumentos do chain. Deste modo, este ficheiro é ignorado*/
+                if (filepath != filename) {
+                    filepaths.push_back(filepath);
+                }
+            }
+            return new command::chain(filepaths);
         }
-        */
+
         *Logger::err() << "Command not recognized: '" + command_name + "'\n";
         return nullptr;
     }
