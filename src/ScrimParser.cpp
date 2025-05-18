@@ -42,14 +42,14 @@ namespace prog {
 
     // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
     // E assim evitar recursão com o comando chain
-    Scrim *ScrimParser::parseScrim(std::istream &input, const std::string &filename) {
+    Scrim *ScrimParser::parseScrim(std::istream &input, const std::string& current_filename) {
         // Create vector where commands will be stored
         vector<Command *> commands;
 
         // Parse commands while there is input in the stream
         string command_name;
         while (input >> command_name) {
-            Command *command = parse_command(command_name, input, filename);
+            Command *command = parse_command(command_name, input, current_filename);
 
             if (command == nullptr) {
                 // Deallocate already allocated commands
@@ -71,13 +71,13 @@ namespace prog {
 
     // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
     // E assim evitar recursão com o comando chain
-    Scrim *ScrimParser::parseScrim(const std::string &filename) {
-        ifstream in(filename);
-        return parseScrim(in, filename);
+    Scrim *ScrimParser::parseScrim(const std::string& current_filename) {
+        ifstream in(current_filename);
+        return parseScrim(in, current_filename);
     }
 
     // Adicionou-se o argumento filename para evitar recursão com o comando chain
-    Command *ScrimParser::parse_command(string command_name, istream &input, const std::string &filename) {
+    Command *ScrimParser::parse_command(string command_name, istream &input, const std::string& current_filename) {
         if (command_name == "blank") {
             // Read information for Blank command
             int w, h;
@@ -98,6 +98,7 @@ namespace prog {
             input >> filename;
             return new command::Open(filename);
         }
+
         if (command_name == "invert") {
             return new command::invert();
         }
@@ -111,7 +112,6 @@ namespace prog {
             input >> c1 >> c2;
             return new command::Replace(c1,c2);
         }
-
 
         if (command_name == "fill") {
             int x,y;
@@ -178,6 +178,7 @@ namespace prog {
         }
 
         if (command_name  == "chain") {
+            command::chain::all_filepaths_.push_back(current_filename);
             // variável para guardar cada argumento do chain
             string filepath;
 
@@ -188,7 +189,16 @@ namespace prog {
             while (input >> filepath && filepath != "end") {
                 /* Deteta a recursão: se o ficheiro atual fôr o mesmo que um dos argumentos do chain, há recursão e
                 não adicionamos o file path aos argumentos do chain. Deste modo, este ficheiro é ignorado*/
-                if (filepath != filename) {
+                bool found = false;
+
+                for (const string& seen_filepath : command::chain::all_filepaths_) {
+                    if (filepath == seen_filepath) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) { // se o novo filepath não está na chain global atual
                     filepaths.push_back(filepath);
                 }
             }

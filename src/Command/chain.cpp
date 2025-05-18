@@ -13,7 +13,11 @@ namespace prog {
     namespace command {
         chain::chain(std::vector<std::string> filepaths) : Command("chain"), filepaths_(filepaths){}
 
-        chain::~chain() {}
+        chain::~chain() {
+            all_filepaths_.pop_back();
+        }
+
+        std::vector<std::string> chain::all_filepaths_;
 
         Image *chain::apply(Image *img) {
             // Iterar sobre o vetor de filepaths
@@ -41,13 +45,13 @@ namespace prog {
 
         // Parsers específicos para chain, semelhantes aos do ScrimParser
 
-        Scrim *chain::parseChain(const std::string &filename) {
-            std::ifstream in(filename);
-            return parseChain(in, filename);
+        Scrim *chain::parseChain(const std::string &current_filename) {
+            std::ifstream in(current_filename);
+            return parseChain(in, current_filename);
         }
 
 
-        Scrim *chain::parseChain(std::istream &input, const std::string &filename) {
+        Scrim *chain::parseChain(std::istream &input, const std::string &current_filename) {
             // Create vector where commands will be stored
             std::vector<Command *> commands;
 
@@ -68,7 +72,7 @@ namespace prog {
                 else {
                     ScrimParser scrim_parser;
 
-                    Command *command = scrim_parser.parse_command(command_name, input, filename);
+                    Command *command = scrim_parser.parse_command(command_name, input, current_filename);
 
                     if (command == nullptr) {
                         // Deallocate already allocated commands

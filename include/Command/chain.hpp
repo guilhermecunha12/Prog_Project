@@ -19,17 +19,21 @@ namespace prog {
             // Destrutor
             ~chain();
 
+            // Static field do vetor que guarda todos os filepaths processados
+            static std::vector<std::string> all_filepaths_;
+
             // Overrides
             Image *apply(Image *img) override;
 
             std::string toString() const override;
 
-            // Parsers específicos para chain, semelhantes aos do ScrimParser
-            Scrim *parseChain(std::istream &input, const std::string &filename);
+            // Parsers específicos para chain, semelhantes aos do ScrimParser, para ignorar os comandos save, blank e open
+            Scrim *parseChain(std::istream &input, const std::string &current_filename);
 
-            Scrim *parseChain(const std::string &filename);
+            Scrim *parseChain(const std::string &current_filename);
         private:
             std::vector<std::string> filepaths_;
+
         };
     }
 }

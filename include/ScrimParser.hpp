@@ -20,7 +20,7 @@ namespace prog {
          */
         // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
         // E assim evitar recursão com o comando chain
-        Scrim *parseScrim(std::istream &input, const std::string &filename);
+        Scrim *parseScrim(std::istream &input, const std::string& current_filename);
 
         /**
          * Helper method that accepts a file.
@@ -33,7 +33,7 @@ namespace prog {
         Scrim *parseScrim(const std::string &filename);
 
         // Adicionou-se o argumento filename para evitar recursão com o comando chain
-        Command *parse_command(std::string command_name, std::istream &istream, const std::string &filename);
+        Command *parse_command(std::string command_name, std::istream &istream, const std::string& current_filename);
     };
 }
 
