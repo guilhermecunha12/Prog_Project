@@ -14,6 +14,9 @@ namespace prog {
         chain::chain(std::vector<std::string> filepaths) : Command("chain"), filepaths_(filepaths){}
 
         chain::~chain() {
+            // Quando um comando chain é apagado pelo destrutor do Scrim, o filepath do ficheiro acabado de processar
+            // deve ser descartado do vetor de filepaths global, uma vez que a sua chain saiu da "chain global". Isto
+
             all_filepaths_.pop_back();
         }
 
@@ -21,9 +24,9 @@ namespace prog {
 
         Image *chain::apply(Image *img) {
             // Iterar sobre o vetor de filepaths
-            for (size_t i = 0; i < filepaths_.size(); i++) {
+            for (const std::string& filepath : filepaths_) {
                 // Criar um objeto Scrim que contém os comandos de cada argumento do chain, alocado em memória dinâmica
-                Scrim* scrim = parseChain(filepaths_[i]);
+                Scrim* scrim = parseChain(filepath);
 
                 // Aplicar à imagem os comandos de cada argumento do chain
                 img = scrim->run(img);

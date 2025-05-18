@@ -18,8 +18,8 @@ namespace prog {
          * @param input
          * @return a **new** ImagePipeline built from the script defined in the input stream
          */
-        // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
-        // E assim evitar recursão com o comando chain
+        // Adicionou-se o argumento current_filename para se preservar o nome do ficheiro atual, num vetor,
+        // quando se chama o parse_command e assim evitar recursão com o comando chain
         Scrim *parseScrim(std::istream &input, const std::string& current_filename);
 
         /**
@@ -28,11 +28,11 @@ namespace prog {
          * @param filename
          * @return a **new** ImagePipeline built from the script defined in the given file
          */
-        // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
-        // E assim evitar recursão com o comando chain
+        // Adicionou-se o argumento current_filename para se preservar o nome do ficheiro atual, num vetor,
+        // quando se chama o parse_command e assim evitar recursão com o comando chain
         Scrim *parseScrim(const std::string &filename);
 
-        // Adicionou-se o argumento filename para evitar recursão com o comando chain
+        // Adicionou-se o argumento current_filename para evitar recursão com o comando chain
         Command *parse_command(std::string command_name, std::istream &istream, const std::string& current_filename);
     };
 }

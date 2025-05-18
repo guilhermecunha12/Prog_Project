@@ -19,7 +19,8 @@ namespace prog {
             // Destrutor
             ~chain();
 
-            // Static field do vetor que guarda todos os filepaths processados
+            // Static field do vetor que guarda globalmente, para todos os objetos chain,
+            // todos os filepaths que contêm o comando chain
             static std::vector<std::string> all_filepaths_;
 
             // Overrides
@@ -28,12 +29,14 @@ namespace prog {
             std::string toString() const override;
 
             // Parsers específicos para chain, semelhantes aos do ScrimParser, para ignorar os comandos save, blank e open
-            Scrim *parseChain(std::istream &input, const std::string &current_filename);
+            // Static, porque são globais à classe
+            static Scrim *parseChain(std::istream &input, const std::string &current_filename);
 
-            Scrim *parseChain(const std::string &current_filename);
+            static Scrim *parseChain(const std::string &current_filename);
+
         private:
+            // Filepaths dos scrims do chain
             std::vector<std::string> filepaths_;
-
         };
     }
 }

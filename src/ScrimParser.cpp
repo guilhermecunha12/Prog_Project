@@ -40,8 +40,8 @@ namespace prog {
     ScrimParser::~ScrimParser() {
     };
 
-    // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
-    // E assim evitar recursão com o comando chain
+    // Adicionou-se o argumento current_filename para se preservar o nome do ficheiro atual, num vetor,
+    // quando se chama o parse_command e assim evitar recursão com o comando chain
     Scrim *ScrimParser::parseScrim(std::istream &input, const std::string& current_filename) {
         // Create vector where commands will be stored
         vector<Command *> commands;
@@ -69,14 +69,14 @@ namespace prog {
         return new Scrim(commands);
     }
 
-    // Adicionou-se o argumento filename para se preservar o nome do ficheiro atual quando se chama o parse_command
-    // E assim evitar recursão com o comando chain
+    // Adicionou-se o argumento current_filename para se preservar o nome do ficheiro atual, num vetor,
+    // quando se chama o parse_command e assim evitar recursão com o comando chain
     Scrim *ScrimParser::parseScrim(const std::string& current_filename) {
         ifstream in(current_filename);
         return parseScrim(in, current_filename);
     }
 
-    // Adicionou-se o argumento filename para evitar recursão com o comando chain
+    // Adicionou-se o argumento current_filename para evitar recursão com o comando chain
     Command *ScrimParser::parse_command(string command_name, istream &input, const std::string& current_filename) {
         if (command_name == "blank") {
             // Read information for Blank command
@@ -178,17 +178,20 @@ namespace prog {
         }
 
         if (command_name  == "chain") {
+            // Adiciona-se o filepath atual à "chain global", que contém o comando chain
             command::chain::all_filepaths_.push_back(current_filename);
+
             // variável para guardar cada argumento do chain
             string filepath;
 
-            // vetor que guarda os argumentos do chain
+            // vetor que guarda os argumentos do chain atual
             vector<string> filepaths;
 
             // Lê um número arbitrário de filepaths enquanto o input não acabar e não terminar com a string end
             while (input >> filepath && filepath != "end") {
-                /* Deteta a recursão: se o ficheiro atual fôr o mesmo que um dos argumentos do chain, há recursão e
-                não adicionamos o file path aos argumentos do chain. Deste modo, este ficheiro é ignorado*/
+                // Deteta a recursão: se o filepath atual já tiver sido processado como um filepath que contém
+                // o comando chain, isto é, se estiver na "chain global", há recursão e não adicionamos o
+                // filepath aos argumentos do chain. Deste modo, este ficheiro é ignorado.
                 bool found = false;
 
                 for (const string& seen_filepath : command::chain::all_filepaths_) {
@@ -198,7 +201,8 @@ namespace prog {
                     }
                 }
 
-                if (!found) { // se o novo filepath não está na chain global atual
+                // se o novo filepath não estiver na "chain global", este será adicionado aos argumentos do chain atual
+                if (!found) {
                     filepaths.push_back(filepath);
                 }
             }
