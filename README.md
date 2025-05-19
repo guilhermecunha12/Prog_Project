@@ -2,7 +2,7 @@
 Projeto realizado no âmbito da disciplina de Programação
 
 # Sugestão dos professores
-Eliminar as alterações feitas ao parseScrim.cpp e hpp
+Eliminar as alterações feitas ao parseScrim.cpp e hpp (manter  como inicialmente estavam no projeto)
 
 Eliminar os parseChains (aproveitar o parseScrim original e fazer uso do getCommands do scrim)
 
