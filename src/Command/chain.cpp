@@ -7,32 +7,70 @@
 #include <sstream>
 #include <fstream>
 #include "Logger.hpp"
+#include "stb/stb_image.h"
 
 
 namespace prog {
     namespace command {
-        chain::chain(std::vector<std::string> filepaths) : Command("chain"), filepaths_(filepaths){}
+        chain::chain(std::vector<std::string> filepaths) : Command("Chain"), filepaths_(filepaths){}
 
         chain::~chain() {
             // Quando um comando chain é apagado pelo destrutor do Scrim, o filepath do ficheiro acabado de processar
-            // deve ser descartado do vetor de filepaths global, uma vez que a sua chain saiu da "chain global". Isto
-
-            all_filepaths_.pop_back();
+            // deve ser descartado do vetor de filepaths global, uma vez que a sua chain saiu da "chain global".
+            // Isto só acontece se a chain global não estiver vazia
+            if (!all_filepaths_.empty()) {
+                all_filepaths_.pop_back();
+            }
         }
 
+        // Static field do vetor que guarda globalmente, para todos os objetos chain,
+        // todos os filepaths que contêm o comando chain
         std::vector<std::string> chain::all_filepaths_;
 
+        // Função para verificar se um scrim file já está na chain global de modo a evitar recursão
+        bool chain::in_global_chain(const std::string &filepath) {
+            bool found = false;
+            for (const std::string& seen_filepath : all_filepaths_) {
+                if (filepath == seen_filepath) {
+                    found = true;
+                    break;
+                }
+            }
+            return found;
+        }
+
         Image *chain::apply(Image *img) {
-            // Iterar sobre o vetor de filepaths
+            // Iterar sobre o vetor de filepaths (argumentos do chain)
             for (const std::string& filepath : filepaths_) {
-                // Criar um objeto Scrim que contém os comandos de cada argumento do chain, alocado em memória dinâmica
-                Scrim* scrim = parseChain(filepath);
 
-                // Aplicar à imagem os comandos de cada argumento do chain
-                img = scrim->run(img);
+                // Só se faz parse a scrim files que não estejam na chain global, caso contrário são ignorados
+                if (!in_global_chain(filepath)) {
 
-                // Após cada argumento do chain libertamos a memória dinâmica associada à cada objeto Scrim criado
-                delete scrim;
+                    // Criar um objeto ScrimParser capaz de efetuar o parsing do ficheiro Scrim
+                    ScrimParser chain_parser;
+
+                    // Criar um objeto Scrim* que contém os comandos de cada argumento do chain, alocados em memória dinâmica
+                    Scrim* chain_scrim = chain_parser.parseScrim(filepath);
+
+                    // Foi utilizada um loop semelhante ao do Scrim::run para filtrar operações inválidas
+                    // para o comando chain
+                    for (Command* c: chain_scrim->getCommands()) {
+                        // Verificar se o filepath atual, argumento do chain, contém ele próprio um comando chain.
+                        // Se for o caso adicionar o filepath à chain global.
+                        // Esta condição verifica-se antes de utilizar a função apply para cada comando, evitando recursão
+                        if (c->name() == "Chain") {
+                            all_filepaths_.push_back(filepath);
+                        }
+
+                        // Ignorar os comandos Blank Open e Save
+                        if (c->name() != "Blank" && c->name() != "Open" && c->name() != "Save") {
+                            *Logger::out() << "Applying command '" << c->toString() << "'\n";
+                            img = c->apply(img);
+                        }
+                    }
+                    // Após cada argumento do chain libertamos a memória dinâmica associada à cada objeto Scrim criado
+                    delete chain_scrim;
+                }
             }
             return img;
         }
@@ -44,55 +82,6 @@ namespace prog {
                 out << ", " << filepaths_[i];
             }
             return out.str();
-        }
-
-        // Parsers específicos para chain, semelhantes aos do ScrimParser
-
-        Scrim *chain::parseChain(const std::string &current_filename) {
-            std::ifstream in(current_filename);
-            return parseChain(in, current_filename);
-        }
-
-
-        Scrim *chain::parseChain(std::istream &input, const std::string &current_filename) {
-            // Create vector where commands will be stored
-            std::vector<Command *> commands;
-
-            // Parse commands while there is input in the stream
-            std::string command_name;
-            while (input >> command_name) {
-                if (command_name == "blank") {
-                    // Ignora os parâmetros seguintes do comando
-                    int trash;
-                    input >> trash >> trash >> trash >> trash >> trash;
-                }
-
-                else if (command_name == "open" || command_name == "save") {
-                    // Ignora os parâmetros seguintes do comando
-                    std::string trash;
-                    input >> trash;
-                }
-                else {
-                    ScrimParser scrim_parser;
-
-                    Command *command = scrim_parser.parse_command(command_name, input, current_filename);
-
-                    if (command == nullptr) {
-                        // Deallocate already allocated commands
-                        for (Command *allocated_command: commands) {
-                            delete allocated_command;
-                        }
-
-
-                        *Logger::err() << "Error while parsing command\n";
-                        return nullptr;
-                    }
-
-                    commands.push_back(command);
-                }
-            }
-            // Create a new image pipeline
-            return new Scrim(commands);
         }
     }
 }
