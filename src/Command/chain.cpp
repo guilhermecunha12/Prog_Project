@@ -62,7 +62,7 @@ namespace prog {
                             all_filepaths_.push_back(filepath);
                         }
 
-                        // Ignorar os comandos Blank Open e Save
+                        // Ignorar apenas os comandos Blank Open e Save
                         if (c->name() != "Blank" && c->name() != "Open" && c->name() != "Save") {
                             *Logger::out() << "Applying command '" << c->toString() << "'\n";
                             img = c->apply(img);
