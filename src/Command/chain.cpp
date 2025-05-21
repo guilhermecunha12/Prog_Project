@@ -68,7 +68,7 @@ namespace prog {
                             img = c->apply(img);
                         }
                     }
-                    // Após cada argumento do chain libertamos a memória dinâmica associada à cada objeto Scrim criado
+                    // Após cada argumento do chain libertamos a memória dinâmica associada a cada objeto Scrim criado
                     delete chain_scrim;
                 }
             }
