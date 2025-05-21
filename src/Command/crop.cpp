@@ -13,8 +13,8 @@ namespace prog {
         crop::~crop() {}
 
         Image *crop::apply(Image *img) {
-            // Garante que os limites da imagem original nunca são ultrapassados
             // Podemos alterar os member fields diretamente uma vez que estes estão protected
+            // Garante que os limites da imagem original nunca são ultrapassados
             w_ = w_ < img->width() - x_ ? w_ : img->width() - x_;
             h_ = h_ < img->height() - y_ ? h_ : img->height() - y_;
             // O crop é um resize até aos limites da imagem
