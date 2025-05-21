@@ -14,14 +14,18 @@ namespace prog {
         crop::~crop() {}
 
         Image *crop::apply(Image *img) {
-            // Criamos uma nova imagem com as dimensões atualizadas
-            Image* new_image = new Image(w_, h_);
+            // Garante que os limites da imagem original nunca são ultrapassados
+            int valid_width = w_ < img->width() - x_ ? w_ : img->width() - x_;
+            int valid_height = h_ < img->height() - y_ ? h_ : img->height() - y_;
 
-            // Iteramos sobre a imagem antiga, sem ultrapassar os limites da mesma
-            for (int y = y_; y < y_ + h_ && y < img->height(); y++) {
-                for (int x = x_; x < x_ + w_ && x < img->width(); x++) {
-                    // Cor do píxel da imagem antes do crop
-                    new_image->at(x - x_, y - y_) = img->at(x, y);
+            // Criamos uma nova imagem com as dimensões atualizadas
+            Image* new_image = new Image(valid_width, valid_height);
+
+            // Iteramos sobre a imagem antiga, tendo em conta as dimensões atualizadas
+            for (int y = 0; y < valid_height; y++) {
+                for (int x = 0; x < valid_width; x++) {
+                    // Aplica-se o offset (x_, y_) à imagem original, que é o ponto de partida para o crop
+                    new_image->at(x, y) = img->at(x + x_, y + y_);
                 }
             }
             // Eliminar a imagem anterior

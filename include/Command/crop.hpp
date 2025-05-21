@@ -6,7 +6,6 @@
 #define CROP_HPP
 
 #include "Command.hpp"
-#include "Color.hpp"
 
 namespace prog {
     namespace command {
@@ -19,6 +18,7 @@ namespace prog {
             Image *apply(Image *img) override;
 
             std::string toString() const override;
+
         private:
             int x_, y_, w_, h_;
         };
