@@ -6,10 +6,11 @@
 #define CROP_HPP
 
 #include "Command.hpp"
+#include "Resize.hpp"
 
 namespace prog {
     namespace command {
-        class crop : public Command {
+        class crop : public Resize {
         public:
             crop(int x, int y, int w, int h);
 
@@ -18,9 +19,6 @@ namespace prog {
             Image *apply(Image *img) override;
 
             std::string toString() const override;
-
-        private:
-            int x_, y_, w_, h_;
         };
     }
 }

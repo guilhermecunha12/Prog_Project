@@ -13,8 +13,8 @@ namespace prog
         class Resize : public Command
         {
         public:
-            // Constructor
-            Resize(int x, int y, int w, int h);
+            // Adicionou-se o quinto argumento para que o crop possa ser subclasse de resize e passar o seu nome à classe Command
+            Resize(int x, int y, int w, int h, std::string command_name = "Resize");
 
             // Destrutor
             ~Resize();
@@ -23,7 +23,8 @@ namespace prog
             Image* apply(Image* img) override;
             std::string toString() const override;
 
-        private:
+        // Permitem que os member fields sejam acessíveis pela subclasse crop
+        protected:
             int x_, y_, w_, h_;
         };
     }
