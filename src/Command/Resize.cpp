@@ -18,16 +18,16 @@ namespace prog
             Image* res = new Image(w_, h_);
 
             // Tendo em conta as dimensões da imagem criada, estabelecer os limites válidos dentro dos quais a imagem original se enquadra nestas dimensões
-            int valid_height = y_ + h_ < img->height() ? y_ + h_ : img->height();
-            int valid_width = x_ + w_ < img->width() ? x_ + w_ : img->width();
+            int valid_height = h_ < img->height() - y_ ? h_ : img->height() - y_;
+            int valid_width = w_ < img->width() - x_ ? w_ : img->width() - x_;
 
             // Selecionar uma linha da imagem
             // y: pixel da nova imagem
             // y + y_: píxel da imagem original
-            for (int y = 0; y + y_ < valid_height ; y++)
+            for (int y = 0; y < valid_height ; y++)
             {
                 // Percorrer a linha selecionada da imagem
-                for (int x = 0 ; x + x_ < valid_width; x++)
+                for (int x = 0 ; x < valid_width; x++)
                 {
                     // Preencher a parte do resize que está compreendida dentro da imagem original,
                     // aplicando o offset (x_, y_) à imagem original, o ponto de partida para o resize

@@ -10,6 +10,7 @@
 
 namespace prog {
     namespace command {
+        // O crop é um resize até aos limites da imagem
         class crop : public Resize {
         public:
             crop(int x, int y, int w, int h);

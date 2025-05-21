@@ -8,9 +8,7 @@
 
 namespace prog {
     namespace command {
-        crop::crop(int x, int y, int w, int h) : Resize(x, y, w, h, "crop") {
-
-        }
+        crop::crop(int x, int y, int w, int h) : Resize(x, y, w, h, "crop") {}
 
         crop::~crop() {}
 
@@ -19,6 +17,7 @@ namespace prog {
             // Podemos alterar os member fields diretamente uma vez que estes estão protected
             w_ = w_ < img->width() - x_ ? w_ : img->width() - x_;
             h_ = h_ < img->height() - y_ ? h_ : img->height() - y_;
+            // O crop é um resize até aos limites da imagem
             return Resize::apply(img);
         }
 
