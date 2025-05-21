@@ -1,11 +1,6 @@
 # project_final
 Projeto realizado no âmbito da disciplina de Programação
 
-# Sugestão dos professores
-Eliminar as alterações feitas ao parseScrim.cpp e hpp (manter  como inicialmente estavam no projeto)
-
-Eliminar os parseChains (aproveitar o parseScrim original e fazer uso do getCommands do scrim)
-
 # BÍBLIA DO GIT (holy shit):
 
 ## SE APARECER CONFLITO NO CLION OU ALGUMA COISA ESTRANHA NO TERMINAL, LIGAR CALL OU MANDAR MENSAGEM
@@ -39,19 +34,6 @@ Explicações:
 - git merge nome do branch (dentro do main)
 
 - git push origin main (Atualizar a main do GitHub)
-
-# Distribuição do trabalho
-
-# Gui
-- Implementar Image
-- Implementar to_gray_scale, h_mirror, move, rotate_left, resize
-
-# Gabi
-- Implementar Scrim Parser
-- Implementar replace, v_mirror, slide, scaleup
-
-# Advanced Functionality
-- Fazemos juntos numa call discord e rever o código já alterado (Dia 10 se possível)
 
 # Esta imagem ajuda a exemplificar como funcionam os comandos mas o melhor é seguir o guia SEMPRE
   ![1710155247237](https://github.com/user-attachments/assets/48dc6ac0-eba1-4347-9cbd-0e5cf4e84bd0)
