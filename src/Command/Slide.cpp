@@ -8,7 +8,7 @@
 namespace prog {
     namespace command {
         // Construtor
-        Slide::Slide(int x, int y) : Command("Slide"),x_(x),y_(y) {}
+        Slide::Slide(int x, int y, std::string command_name) : Command(command_name),x_(x),y_(y) {}
         // Destrutor default
         Slide::~Slide() {}
         // member functions
@@ -16,10 +16,9 @@ namespace prog {
             //Criar uma nova imagem alocada em memória dinâmica para não haver repetição da imagem
             Image* temp = new Image(img->width(),img->height());
             // percorre as linhas da img
-            for (int y = 0; y < img->height();y++) {
+            for (int y = 0; y < img->height(); y++) {
                 // Percorre cada linha da img
-                for (int x = 0; x < img->width();x++) {
-
+                for (int x = 0; x < img->width(); x++) {
                     int new_x = (x + x_) % img->width();
                     int new_y = (y + y_) % img->height();
                     //altera os pixeis
@@ -33,7 +32,7 @@ namespace prog {
 
         std::string Slide::toString() const {
             std::ostringstream ss;
-            ss << name() << " x: " << x_ << " y: " << y_;
+            ss << name() << " x:" << x_ << " y:" << y_;
             return ss.str();
         }
     }

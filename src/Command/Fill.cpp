@@ -2,19 +2,19 @@
 // Created by pedro on 5/9/25.
 //
 
-#include "Command/fill.hpp"
+#include "Command/Fill.hpp"
 #include "Image.hpp"
 #include "Color.hpp"
 #include <sstream>
 
 namespace prog {
     namespace command {
-        fill::fill(int x, int y, int w, int h, Color &color_fill)
-            : Command("fill"), x_(x), y_(y), w_(w), h_(h), color_fill_(color_fill) {}
+        Fill::Fill(int x, int y, int w, int h, Color &color_fill)
+            : Command("Fill"), x_(x), y_(y), w_(w), h_(h), color_fill_(color_fill) {}
 
-        fill::~fill() {}
+        Fill::~Fill() {}
 
-        Image *fill::apply(Image *img) {
+        Image *Fill::apply(Image *img) {
             // Iniciamos a partir do Top-left corner e terminamos quando alcançarmos o fim da imagem em altura
             for (int y = y_; y < y_ + h_ && y < img->height(); y++) {
                 // Iniciamos a partir do Top-left corner e terminamos quando alcançarmos o fim da imagem em largura
@@ -25,9 +25,9 @@ namespace prog {
             }
             return img;
         }
-        std::string fill::toString() const {
+        std::string Fill::toString() const {
             std::ostringstream out;
-            out << name() << " Top left corner (x:" << x_ << " y:" << y_ << ") w:" << w_ << " h:" << h_ << " fill:" << color_fill_;
+            out << name() << " x:" << x_ << " y:" << y_ << " w:" << w_ << " h:" << h_ << " fill:" << color_fill_;
             return out.str();
         }
     }

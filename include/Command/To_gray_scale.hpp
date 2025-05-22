@@ -10,7 +10,7 @@ namespace prog
 {
     namespace command
     {
-        class To_gray_scale : public Command
+        class To_gray_scale final : public Command
         {
         public:
             // Construtor

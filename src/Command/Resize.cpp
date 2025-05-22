@@ -42,7 +42,7 @@ namespace prog
         std::string Resize::toString() const
         {
             std::ostringstream ss;
-            ss << name() << " Resized the image from pixel (" << x_ << ',' << y_ << ") with width " << w_ << " and height " << h_;
+            ss << name() << " from x:" << x_ << " y:" << y_ << " w:" << w_ << " h:" << h_;
             return ss.str();
         }
     }

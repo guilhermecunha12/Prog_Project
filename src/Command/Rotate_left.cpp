@@ -39,7 +39,7 @@ namespace prog
         std::string Rotate_left::toString() const
         {
             std::ostringstream ss;
-            ss << name() << " Rotated the image left by 90 degrees";
+            ss << name() << " by 90 degrees";
             return ss.str();
         }
     }

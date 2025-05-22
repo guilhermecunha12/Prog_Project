@@ -10,7 +10,7 @@
 
 namespace prog {
     namespace command {
-        class Replace : public Command {
+        class Replace final : public Command {
         public:
             //Construtor
             Replace(Color c1,Color c2);

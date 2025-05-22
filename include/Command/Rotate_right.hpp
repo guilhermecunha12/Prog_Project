@@ -9,11 +9,11 @@
 
 namespace prog {
     namespace command {
-        class rotate_right : public Command {
+        class Rotate_right final : public Command {
         public:
-            rotate_right();
+            Rotate_right();
 
-            ~rotate_right();
+            ~Rotate_right();
 
             Image *apply(Image *img) override;
 

@@ -5,7 +5,6 @@
 #include "Command/Replace.hpp"
 #include "PNG.hpp"
 #include "Logger.hpp"
-#include <cstdlib>
 #include <sstream>
 
 namespace prog {
@@ -37,7 +36,7 @@ namespace prog {
 
         std::string Replace::toString() const {
             std::ostringstream ss;
-            ss << name() << " Color 1:" << color1_ << " Color 2:" << color2_;
+            ss << name() << " Color1:" << color1_ << " Color2:" << color2_;
             return ss.str();
         }
     }

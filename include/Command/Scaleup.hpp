@@ -10,7 +10,7 @@
 
 namespace prog {
     namespace command {
-        class Scaleup : public Command {
+        class Scaleup final : public Command {
         public:
             //Construtor
             Scaleup(int x,int y);

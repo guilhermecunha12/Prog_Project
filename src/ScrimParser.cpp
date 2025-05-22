@@ -11,17 +11,17 @@
 #include "Command/H_mirror.hpp"
 #include "Command/Move.hpp"
 #include "Command/Rotate_left.hpp"
-#include "Command/invert.hpp"
-#include "Command/fill.hpp"
-#include "Command/add.hpp"
-#include "Command/crop.hpp"
+#include "Command/Invert.hpp"
+#include "Command/Fill.hpp"
+#include "Command/Add.hpp"
+#include "Command/Crop.hpp"
 #include "Command/V_mirror.hpp"
 #include "Command/Slide.hpp"
 #include "Command/Scaleup.hpp"
 #include "Logger.hpp"
 #include "Command/Resize.hpp"
-#include "Command/rotate_right.hpp"
-#include "Command/chain.hpp"
+#include "Command/Rotate_right.hpp"
+#include "Command/Chain.hpp"
 
 #include <fstream>
 #include <string>
@@ -95,7 +95,7 @@ namespace prog {
         }
 
         if (command_name == "invert") {
-            return new command::invert();
+            return new command::Invert();
         }
 
         if (command_name == "to_gray_scale") {
@@ -113,7 +113,7 @@ namespace prog {
             int w,h;
             Color fill;
             input >> x >> y >> w >> h >> fill;
-            return new command::fill(x, y, w, h, fill);
+            return new command::Fill(x, y, w, h, fill);
         }
 
         if (command_name == "h_mirror") {
@@ -129,7 +129,7 @@ namespace prog {
            Color neutral;
            int x, y;
            input >> filename >> neutral >> x >> y;
-           return new command::add(filename,neutral, x, y);
+           return new command::Add(filename,neutral, x, y);
         }
 
         if (command_name == "move") {
@@ -148,7 +148,7 @@ namespace prog {
            int x,y;
            int w,h;
            input >> x >> y >> w >> h;
-           return new command::crop(x,y,w,h);
+           return new command::Crop(x,y,w,h);
         }
 
         if (command_name == "resize") {
@@ -163,7 +163,7 @@ namespace prog {
         }
 
         if (command_name == "rotate_right") {
-           return new command::rotate_right();
+           return new command::Rotate_right();
         }
 
         if (command_name == "scaleup") {
@@ -183,7 +183,7 @@ namespace prog {
             while (input >> filepath && filepath != "end") {
                 filepaths.push_back(filepath);
             }
-            return new command::chain(filepaths);
+            return new command::Chain(filepaths);
         }
 
         *Logger::err() << "Command not recognized: '" + command_name + "'\n";

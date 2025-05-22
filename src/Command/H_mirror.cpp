@@ -35,7 +35,7 @@ namespace prog
         std::string H_mirror::toString() const
         {
             std::ostringstream ss;
-            ss << name() << " Image was h-mirrored";
+            ss << name() << ": image was horizontally mirrored";
             return ss.str();
         }
 

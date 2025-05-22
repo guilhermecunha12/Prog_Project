@@ -12,7 +12,7 @@ namespace prog
 {
     namespace command
     {
-        class V_mirror : public Command
+        class V_mirror final : public Command
         {
         public:
             // Construtor

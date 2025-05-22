@@ -11,11 +11,11 @@
 namespace prog {
     namespace command {
         // O crop é um resize até aos limites da imagem
-        class crop : public Resize {
+        class Crop final : public Resize {
         public:
-            crop(int x, int y, int w, int h);
+            Crop(int x, int y, int w, int h);
 
-            ~crop();
+            ~Crop();
 
             Image *apply(Image *img) override;
 

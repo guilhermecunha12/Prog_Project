@@ -10,11 +10,11 @@
 
 namespace prog {
     namespace command {
-        class fill : public Command {
+        class Fill final : public Command {
         public:
-            fill(int x, int y, int w, int h, Color& color_fill);
+            Fill(int x, int y, int w, int h, Color& color_fill);
 
-            ~fill();
+            ~Fill();
 
             Image *apply(Image *img) override;
 

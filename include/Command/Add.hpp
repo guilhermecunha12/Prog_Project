@@ -9,11 +9,11 @@
 
 namespace prog {
     namespace command {
-        class add : public Command {
+        class Add final : public Command {
         public:
-            add(std::string filename, Color& neutral_color, int x, int y);
+            Add(std::string filename, Color& neutral_color, int x, int y);
 
-            ~add();
+            ~Add();
 
             Image *apply(Image *img) override;
 

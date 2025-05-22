@@ -2,18 +2,18 @@
 // Created by pedro on 5/9/25.
 //
 
-#include "Command/rotate_right.hpp"
+#include "Command/Rotate_right.hpp"
 #include <sstream>
 #include "Image.hpp"
 #include "Color.hpp"
 
 namespace prog {
     namespace command {
-        rotate_right::rotate_right() : Command("rotate_right") {}
+        Rotate_right::Rotate_right() : Command("Rotate_right") {}
 
-        rotate_right::~rotate_right() {}
+        Rotate_right::~Rotate_right() {}
 
-        Image *rotate_right::apply(Image *img) {
+        Image *Rotate_right::apply(Image *img) {
             /* Criamos a nova imagem resultante da rotação:
             A altura passa a ser a largura e a largura passa a ser a altura
             */
@@ -33,9 +33,9 @@ namespace prog {
             return img;
         }
 
-        std::string rotate_right::toString() const {
+        std::string Rotate_right::toString() const {
             std::ostringstream out;
-            out << name() << " Rotated the image right by 90 degrees";
+            out << name() << " by 90 degrees";
             return out.str();
         }
     }

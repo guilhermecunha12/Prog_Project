@@ -44,7 +44,7 @@ namespace prog {
 
         std::string Scaleup::toString() const {
             std::ostringstream ss;
-            ss << name() << " x: " << x_ << " y: " << y_;
+            ss << name() << " x:" << x_ << " y:" << y_;
             return ss.str();
         }
     }

@@ -6,18 +6,18 @@
 #define CHAIN_HPP
 
 #include "Command.hpp"
-#include "Command/chain.hpp"
+#include "Command/Chain.hpp"
 #include "ScrimParser.hpp"
 
 namespace prog {
     namespace command {
-        class chain : public Command {
+        class Chain final : public Command {
         public:
             // Construtor
-            chain(std::vector<std::string> filepaths);
+            Chain(std::vector<std::string> filepaths);
 
             // Destrutor
-            ~chain();
+            ~Chain();
 
             // Função para verificar se um scrim file já está na chain global de modo a evitar recursão
             static bool in_global_chain(const std::string& filepath);

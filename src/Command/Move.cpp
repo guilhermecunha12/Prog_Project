@@ -3,45 +3,43 @@
 //
 #include "Command/Move.hpp"
 #include <sstream>
+#include "Command/Crop.hpp"
+#include "Command/Slide.hpp"
 
 namespace prog
 {
     namespace command
     {
-        Move::Move(int x, int y) : Command("Move"), x_(x), y_(y) {}
+        Move::Move(int x, int y) : Slide(x, y, "Move") {}
 
         Move::~Move() {}
 
+        // Partir a imagem que ficaria dentro dos limites e passar ao slide
         Image* Move::apply(Image* img)
         {
-            // Alocar memória dinâmica para nova imagem com as mesmas dimensões
-            // que a imagem img com todos os pixeis com a fill color
-            Image* res = new Image(img->width(), img->height());
+            // Criar uma nova imagem que no canto superior irá conter a porção da imagem
+            // que não ultrapassa os limites depois do move
+            Image* new_img = new Image(img->width(), img->height());
 
-            // Selecionar uma linha da img
-            for (int y = 0; y < img->height(); y++)
-            {
-                // Percorrer a linha selecionada da img
-                for (int x = 0; x < img->width(); x++)
-                {
-                    // Apenas mover os pixeis que, ao serem deslocados, não saiam das margens da imagem.
-                    // Os pixeis que sairem das margens não são copiados para o resultado
-                    if (y + y_ < img->height() && x + x_ < img->width())
-                    {
-                        res->at(x + x_, y + y_) = img->at(x, y);
-                    }
+            // Seleciona uma linha da imagem
+            for (int y = 0; y < img->height() - y_; y++) {
+                // Itera sobre cada linha
+                for (int x = 0; x < img->width() - x_; x++) {
+                    new_img->at(x, y) = img->at(x, y);
                 }
             }
-
-            delete img; // Libertar a memória dinâmica da imagem original
-            img = res;
-            return img;
+            // Eliminar a memória alocada da imagem anterior
+            delete img;
+            // img passa a ser a nova imagem
+            img = new_img;
+            // Aplicar o slide à imagem: este será equivalente ao move na medida em que faz warp à fill color default
+            return Slide::apply(img);
         }
 
         std::string Move::toString() const
         {
             std::ostringstream ss;
-            ss << name() << " Moved image by " << x_ << " x pixels and " << y_ << " y pixels";
+            ss << name() << " image by x:" << x_ << " y:" << y_;
             return ss.str();
         }
     }

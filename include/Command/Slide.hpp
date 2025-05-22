@@ -16,13 +16,13 @@ namespace prog
         {
         public:
             // Construtor
-            Slide(int x, int y);
+            Slide(int x, int y, std::string command_name = "Slide");
             //Destrutor
             ~Slide();
             //member functions
             Image* apply(Image* img) override;
             std::string toString() const override;
-        private:
+        protected:
             int x_,y_;
         };
     }

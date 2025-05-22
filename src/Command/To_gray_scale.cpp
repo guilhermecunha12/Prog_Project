@@ -36,7 +36,7 @@ namespace prog
         std::string To_gray_scale::toString() const
         {
             std::ostringstream ss;
-            ss << name() << " Image in gray scale";
+            ss << name() << ": image in gray scale";
             return ss.str();
         }
 

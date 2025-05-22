@@ -10,7 +10,7 @@ namespace prog
 {
     namespace command
     {
-        class H_mirror : public Command
+        class H_mirror final : public Command
         {
         public:
             // Construtor

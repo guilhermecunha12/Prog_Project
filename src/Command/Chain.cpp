@@ -2,19 +2,18 @@
 // Created by pedro on 5/11/25.
 //
 
-#include "Command/chain.hpp"
+#include "Command/Chain.hpp"
 #include "ScrimParser.hpp"
 #include <sstream>
 #include <fstream>
 #include "Logger.hpp"
-#include "stb/stb_image.h"
 
 
 namespace prog {
     namespace command {
-        chain::chain(std::vector<std::string> filepaths) : Command("Chain"), filepaths_(filepaths){}
+        Chain::Chain(std::vector<std::string> filepaths) : Command("Chain"), filepaths_(filepaths){}
 
-        chain::~chain() {
+        Chain::~Chain() {
             // Quando um comando chain é apagado pelo destrutor do Scrim, o filepath do ficheiro acabado de processar
             // deve ser descartado do vetor de filepaths global, uma vez que a sua chain saiu da "chain global".
             // Isto só acontece se a chain global não estiver vazia
@@ -25,10 +24,10 @@ namespace prog {
 
         // Static field do vetor que guarda globalmente, para todos os objetos chain,
         // todos os filepaths que contêm o comando chain
-        std::vector<std::string> chain::all_filepaths_;
+        std::vector<std::string> Chain::all_filepaths_;
 
         // Função para verificar se um scrim file já está na chain global de modo a evitar recursão
-        bool chain::in_global_chain(const std::string &filepath) {
+        bool Chain::in_global_chain(const std::string &filepath) {
             bool found = false;
             for (const std::string& seen_filepath : all_filepaths_) {
                 if (filepath == seen_filepath) {
@@ -39,7 +38,7 @@ namespace prog {
             return found;
         }
 
-        Image *chain::apply(Image *img) {
+        Image *Chain::apply(Image *img) {
             // Iterar sobre o vetor de filepaths (argumentos do chain)
             for (const std::string& filepath : filepaths_) {
 
@@ -75,7 +74,7 @@ namespace prog {
             return img;
         }
 
-        std::string chain::toString() const {
+        std::string Chain::toString() const {
             std::ostringstream out;
             out << name() << " with file(s): " << filepaths_[0];
             for (size_t i = 1; i < filepaths_.size(); i++) {
