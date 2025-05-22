@@ -60,7 +60,6 @@ namespace prog {
     }
 }
 
-
 // Use to read color values from a script file.
 istream &operator>>(istream &input, prog::Color &c) {
     int r, g, b;
@@ -74,4 +73,12 @@ istream &operator>>(istream &input, prog::Color &c) {
 std::ostream &operator<<(std::ostream &output, const prog::Color &c) {
     output << (int) c.red() << ":" << (int) c.green() << ":" << (int) c.blue();
     return output;
+}
+
+prog::Color& operator-(int num, prog::Color& other) {
+    prog::Color& res = other;
+    res.red() = num - other.red();
+    res.green() = num - other.green();
+    res.blue() = num - other.blue();
+    return res;
 }

@@ -24,9 +24,7 @@ namespace prog
                     Color& pixel = img->at(x, y);
                     rgb_value v = (pixel.red() + pixel.green() + pixel.blue()) / 3;
 
-                    pixel.red() = v;
-                    pixel.green() = v;
-                    pixel.blue() = v;
+                    pixel = Color(v, v, v);
                 }
             }
 

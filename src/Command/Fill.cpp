@@ -15,9 +15,10 @@ namespace prog {
         Fill::~Fill() {}
 
         Image *Fill::apply(Image *img) {
-            // Iniciamos a partir do Top-left corner e terminamos quando alcançarmos o fim da imagem em altura
+            // Iniciar a partir do Top-left corner e terminar quando se alcançar o fim da imagem em altura
+            // ou o fim da janela do fill. Se exceder uma das dimensões o loop termina
             for (int y = y_; y < y_ + h_ && y < img->height(); y++) {
-                // Iniciamos a partir do Top-left corner e terminamos quando alcançarmos o fim da imagem em largura
+                // Iniciar a partir do Top-left corner e terminar quando se alcançar o fim da imagem em largura
                 for (int x = x_; x < x_ + w_ && x < img->width(); x++) {
                     // Alterar a cor do píxel atual tendo em conta a cor pretendida
                     img->at(x, y) = color_fill_;

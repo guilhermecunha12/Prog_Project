@@ -42,5 +42,6 @@ std::istream &operator>>(std::istream &input, prog::Color &c);
 
 std::ostream &operator<<(std::ostream &output, const prog::Color &c);
 
+prog::Color& operator-(int num, prog::Color& other);
 
 #endif

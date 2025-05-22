@@ -22,10 +22,8 @@ namespace prog {
 
                     Color& current_color = img->at(x, y);
 
-                    //Utilizar os getters com referências mutáveis para inverter o valor da cor do pixel
-                    current_color.red() = 255 -  current_color.red();
-                    current_color.green() = 255 - current_color.green();
-                    current_color.blue() = 255 - current_color.blue();
+                    //Usar o overload do operator- para atualizar o valor de current_color
+                    current_color = 255 - current_color;
                 }
             }
             return img;

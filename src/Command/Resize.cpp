@@ -22,7 +22,7 @@ namespace prog
             int valid_width = w_ < img->width() - x_ ? w_ : img->width() - x_;
 
             // Selecionar uma linha da imagem
-            // y: pixel da nova imagem
+            // y: píxel da nova imagem
             // y + y_: píxel da imagem original
             for (int y = 0; y < valid_height ; y++)
             {
