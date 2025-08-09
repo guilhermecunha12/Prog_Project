@@ -38,9 +38,11 @@ Explicações:
 # Esta imagem ajuda a exemplificar como funcionam os comandos mas o melhor é seguir o guia SEMPRE
   ![1710155247237](https://github.com/user-attachments/assets/48dc6ac0-eba1-4347-9cbd-0e5cf4e84bd0)
 
+
+
 # 📌 Projeto de Programação — Manipulação de Imagens RGB em C++
 
-Este projeto foi desenvolvido no âmbito da unidade curricular **Programação (L.EIC009)** e consiste na criação de um sistema em **C++** para manipulação de imagens RGB (8 bits por canal) utilizando scripts na linguagem **Scrim**.
+Este projeto foi desenvolvido no âmbito da unidade curricular **Programação (L.EIC009)** e consiste na criação de um programa em **C++** para manipulação de imagens RGB (8 bits para cada cor) utilizando scripts na linguagem **Scrim**.
 
 ---
 
@@ -51,7 +53,7 @@ Este projeto foi desenvolvido no âmbito da unidade curricular **Programação (
   - **`prog::Command`** — comandos de manipulação de imagens em Scrim.
 - Acrescentar comandos personalizados para transformação de imagens.
 - Permitir leitura e escrita de imagens no formato **PNG**.
-- Validar o código através de testes automáticos.
+- Validar o código através de testes automáticos (previamente efetuada)
 
 ---
 
@@ -63,15 +65,15 @@ Este projeto foi desenvolvido no âmbito da unidade curricular **Programação (
 
 ## 📂 Estrutura do projeto
 
-### Pode ser alterado:
+### O que foi alterado/implementado:
 - `include/Color.hpp`, `src/Color.cpp`
 - `include/Image.hpp`, `src/Image.cpp`
 - `include/Command.hpp`, `src/Command.cpp`
 - `include/ScrimParser.hpp`, `src/ScrimParser.cpp`
 - Pastas `include/Command/` e `src/Command/` (novos comandos)
-- Pasta `output/` (imagens geradas)
+- Pasta `output/` (imagens geradas, que serão comparadas posteriormente no tester de modo a comparar com o output esperado)
 
-### Não pode ser alterado:
+### O que não podia ser alterado/já estava completamente implementado:
 - `main/RunScrim.cpp`, `main/Tester.cpp`
 - `include/Scrim.hpp`, `src/Scrim.cpp`
 - `include/PNG.hpp`, `src/PNG.cpp`
@@ -80,7 +82,7 @@ Este projeto foi desenvolvido no âmbito da unidade curricular **Programação (
 
 ---
 
-## 🔧 Funcionalidades implementadas
+## 🔧 Funcionalidades implementadas pelo grupo
 
 ### 1. Classe Color
 - Representa uma cor RGB com métodos para ler e alterar cada canal (0–255).
