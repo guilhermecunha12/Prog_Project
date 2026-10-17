@@ -66,7 +66,7 @@ blank 750 380 0 0 0
 fill 0 0 250 380 255 0 0
 add input/lion.png 255 255 255 0 0
 save output/example.png
-
+``
 ---
 
 ## Developers
@@ -76,4 +76,3 @@ This project was developed by:
 * Gabriel Magalhães (up202405890)
 * Guilherme Cunha (up202405961)
 * Pedro Pires (up202405967)
-
