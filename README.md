@@ -69,9 +69,9 @@ save output/example.png
 ```
 ---
 
-## Developers
+## Grupo
 
-This project was developed by:
+Este projeto foi desenvolvido por:
 
 * Gabriel Magalhães (up202405890)
 * Guilherme Cunha (up202405961)
