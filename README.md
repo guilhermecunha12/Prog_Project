@@ -66,7 +66,7 @@ blank 750 380 0 0 0
 fill 0 0 250 380 255 0 0
 add input/lion.png 255 255 255 0 0
 save output/example.png
-``
+```
 ---
 
 ## Developers
